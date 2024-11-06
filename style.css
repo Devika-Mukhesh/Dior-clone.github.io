@@ -1,0 +1,565 @@
+/* global styling */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth; 
+  scroll-padding-top: 138px;
+  scrollbar-color: grey #3f3f3f ;
+  
+}
+
+html, body {
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        background-color:  #eeeeee;
+        margin: 0;
+        padding: 0;
+}
+
+main{
+        display: flex;
+        flex-direction: column;
+}
+
+/* Container main styling */
+
+.container-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        gap: 0;
+        line-height: 0;
+}
+
+/* Heading Section of the video-containers inside the container-main starts */
+
+.heading-section {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Aligns content to the bottom */
+        align-items: center; /* Centers content horizontally */
+        padding-bottom: 30px; 
+        color: white;
+        background: transparent;
+        z-index: 3; /*text to be present in the above the video*/
+}
+      
+.heading-section h2,
+.heading-section p {
+        margin-top: 10px;
+        margin-bottom: 20px;
+}
+
+.heading-section h2{
+        
+        font-weight: unset;
+        font-family:  'Times New Roman', Times, serif;
+        letter-spacing: 1px;
+        font-size: 35px;
+        font-stretch: 100%;
+        font-weight: lighter;
+}
+
+.heading-section p{
+        font-weight: 500;
+        font-family: Hellix, ABCDiorIcons, arial, sans-serif;
+        line-height: 17px;
+        letter-spacing: normal;
+        font-size: 0.875rem;
+        position: relative; /* Needed for positioning the underline effect */
+        color: #fff; 
+        text-decoration: solid;
+        padding: 5px 0;
+}     
+      
+.heading-section a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        
+}
+
+
+    
+/* Underline effect on hover */
+
+.heading-section p::after {
+        content: "";
+        position: absolute;
+        bottom: 0; /* Positions underline at the bottom of the text */
+        left: 0; /* Starts from the left */
+        width: 100%; /* Default underline*/
+        height: 2px; /* Thickness of the underline */
+        background-color: #fff; 
+        transform: scaleX(1); /* Underline the content by default */
+        transform-origin: left; /* Underline disappears and appears from left*/
+        transition: transform 0.3s ease; 
+}
+    
+/* Hover state */
+
+.heading-section p:hover::after {
+       
+        transform: scaleX(0); /* Underline disappears*/
+        transform-origin: right; /*Underline disappears and appears to right*/
+}
+
+/* heading section ends here */
+
+/* video section effects starts here */
+
+.video-container {
+        position: relative;
+        flex: 1;
+        height: 100%;
+        cursor: pointer;
+        overflow: hidden;
+        filter: brightness(35%); /* Brightness- low*/
+        transition: filter 0.3s ease;
+        z-index: 0;
+}
+.overlay-left{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url(https://diorama.dam-broadcast.com/cdn-cgi/image/width=1440,format=auto/pm_11872_906_906079-1hgr66byvg-whr.jpg);
+        background-size: cover ;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 1;
+        animation: fadeOut 1s ease-out 1s forwards;
+}
+
+@keyframes fadeOut {
+        100%{
+                opacity: 0;
+                visibility: hidden;
+        }
+}
+
+.overlay-right{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-image: url(https://diorama.dam-broadcast.com/cdn-cgi/image/width=1440,format=auto/pm_11872_899_899245-a0jn4v0k6q-whr.jpg);
+        background-size: cover ;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 1;
+        animation: fadeOut 1s ease-out 1s forwards;
+}
+
+@keyframes fadeOut {
+        100%{
+                opacity: 0;
+                visibility: hidden;
+        }
+}
+
+/* left and right video are the video-container only used to add the background image that is hidden behind the video */
+
+.left-video{
+        /* background-image: linear-gradient(rgb(245, 242, 242),rgb(150, 150, 150),rgb(48, 48, 48)); */
+        background-image: url(https://diorama.dam-broadcast.com/cdn-cgi/image/width=1440,format=auto/pm_11872_906_906079-1hgr66byvg-whr.jpg);
+        object-fit: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+}  
+
+.right-video{
+        background-image: url(https://diorama.dam-broadcast.com/cdn-cgi/image/width=1440,format=auto/pm_11872_899_899245-a0jn4v0k6q-whr.jpg);
+        object-fit: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+}
+
+/* video */
+
+.video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+        outline: none;
+        
+}
+
+/* hover effect on video */
+.video-container:hover{
+
+        filter: brightness(100%) !important; /* brightness to 100% when hovered*/
+        background-image: none;/* there is an image as background in the video-container (both) so making sure it doesnot appear*/
+
+}
+
+/* Play and pause button animation */
+.play-button {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.9rem;
+        color: white;
+        background-color: rgba(48, 48, 48, 0.3);
+        border: none;
+        border-radius: 25%;
+        padding: 5px;
+        text-align: center;
+        cursor: pointer;
+        opacity: 1;
+        transition:  0.3s ease, color 0.3s ease;
+        z-index: 1;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+}
+
+/* Hovering effect of video that changes play and pause button */
+.video-container:hover .play-button::before {
+        
+        content: "❚❚"; /*content is pause symbol when hovering over the video*/
+}
+
+.video-container:not(:hover) .play-button::before{
+
+        content: "►";/*content is play symbol when not hovering over the video*/
+}
+
+/* video section ends here */
+
+/* White Icon section starts hear */
+.header {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);/* Gor the icon to be placed at the center of the container-main or viewport*/
+        z-index: 1; /* Ensure header appears above videos */
+        text-align: center;
+}
+      
+.header img {
+        width: 227px;
+        height: 67px;
+        margin-right: 6px;
+}
+
+/* White Icon section ends here */
+
+/* Section 2 starts here */
+
+.section-2 {
+        display: flex;
+        flex-direction: column;
+        background-color:#eeeeee; /*very very light pinkish white (pink 1% white 99%)*/
+}
+    
+.before-footer {
+        background-color: #ffffff; 
+        padding: 30px;
+        margin: 15px;/*There is a 15px margin except on bottom on the website*/
+        margin-bottom: 0;
+}
+
+/* form and it's discription styling starts */
+.email {
+        margin-bottom: 20px;
+}
+    
+.email p {
+        font-size: 1.5em; /* Larger font size */
+        color: rgb(75, 76, 77); /* Grey color */
+        margin-bottom: 10px;
+}
+    
+.email input[type="email"],
+.email .confirm-btn {
+        border-radius: 5px; /* Rounded corners */
+        padding: 8px 12px;
+        margin-right: 10px;
+        border: 0.1px solid #ccc;
+        margin-top: 20px;
+}
+    
+.email label {
+        margin-bottom: 5px;
+        display: block;
+}
+    
+
+.email-form{
+        display: flex;
+        flex-direction: row;
+       color: rgb(75, 76, 77) ; 
+}
+.email-input{
+        color: rgb(75, 76, 77);
+        font-size: 14px;
+        position: relative;
+}
+
+/* when clicked on the email box transition of the label to the upper boarder of the input box */
+
+.email-input label{
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        transform: translateY(50%);
+        transform: translateX(30%);
+        transition: all 0.5s ease;
+        color: rgb(75, 76, 77);
+        background-color: #fff;
+        padding: 0 4px;
+        z-index: 0;
+}
+
+/* Transiition */
+
+.email-input input:focus ~ label{
+        top: 10px;
+        font-size: small;
+        z-index: 1;
+}
+
+.email-input input:focus ~ input {
+        
+       outline: none;
+}
+
+/* height width and margin of the input box  */
+#email{
+        width: 300px;
+        height: 50px;
+        margin-right: 10px;
+}
+
+/* button of the form styling */
+    
+.confirm-btn {
+        background-color: #2b2b2b;
+        color: #fff;
+        cursor: pointer;
+        margin-left: 10px;
+        width: 125px;
+        height: 50px;
+        transition: background-color 0.5s ease;
+        transform-origin: bottom;
+}
+/* Hovering of the button . change in bg clr */
+
+.confirm-btn:hover {
+        background-color: #555555;
+        transform-origin: top;
+}
+/* Form styling ends */
+
+/* Toggle button styling starts */
+.Accessibility {
+        margin-bottom: 50px;
+        margin-top: 60px;
+        display: flex;
+        flex-direction: row;
+}
+    
+.Accessibility p {
+        color: #33383CFF;
+        font-size: 1.1em;
+        font-weight: 200;
+        margin-bottom: 10px;
+}
+
+.toggle-checkbox {
+        display: none; /* Hide the default checkbox */
+}
+    
+.toggle-switch {
+        width: 40px; /* Width of the oval */
+        height: 20px; /* Height of the oval */
+        background-color: #ccc; /* Default background color */
+        border-radius: 30px; /* Round the corners to make it oval */
+        position: relative; /* For the pseudo-element */
+        cursor: pointer; /* Change cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth transition for background */
+        margin-left: 10px; /* Space between text and toggle */
+}
+    
+.toggle-switch::before {
+        content: ""; /* Required for the pseudo-element */
+        position: absolute;
+        width: 16px; /* Diameter of the round button */
+        height: 16px; /* Diameter of the round button */
+        background-color: white; /* Color of the round button */
+        border-radius: 50%; /* Makes it round */
+        left: 2px; /* Position the button inside the oval */
+        top: 2px; /* Center the button vertically */
+        transition: transform 0.3s ease; /* Smooth transition for the button */
+}
+    
+/* Checked state styles */
+.toggle-checkbox:checked + .toggle-switch {
+        background-color: rgb(48, 48, 48); /* Change background color when checked */
+}
+    
+.toggle-checkbox:checked + .toggle-switch::before {
+        transform: translateX(20px); /* Move the round button to the right */
+}
+/* Toggle button styling ends */
+
+/* table styling starts */
+.table-dior{
+
+        margin-left: -100px; /*To get 30px margin from the left since border-spacing affected the margin*/
+}
+    
+.table-dior table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 100px 0; /* Space between table columns */
+        text-align: left;
+}
+
+
+.table-dior th, .table-dior td {
+        text-align: left; 
+        width: max-content; /*So that the content gets in one-line*/
+        font-family:  'Times New Roman', Times, serif;
+}
+    
+.table-dior th{
+        color: rgb(75, 76, 77);
+        padding-bottom: 30px; /*  padding inside each cell */
+        font-weight: lighter;
+        font-size: 25px;
+}
+
+.table-dior td {
+        color: #7B8487FF;
+        padding-bottom: 20px;
+}
+    
+.table-dior a {
+        color: grey;
+        text-decoration: none;
+}
+
+/* hovering effect for a tags in table */
+    
+.table-dior a:hover {
+       color: #484c4e;
+}
+
+/* creating the drop-down arrow  */
+/* class arrow is also used in footer for creating right arrow */
+.arrow {
+        border: solid grey;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        margin-left: 15px;
+}
+/* Shaping the arrow */
+.down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+}
+/* section 2 ends shere */
+
+/* footer styling here */
+
+footer {
+        margin: 0;
+        padding-bottom: 15px; 
+        height: 100px; /* Height of the footer */
+        display: flex; 
+}
+    
+.footer-container {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; /* Space between left and right content */
+        width: 100%; 
+        height: 100%;
+        background-color: #fff;
+        margin: 15px;
+        margin-top: 0; /* A small margin of 15 px as in website except in top*/
+        padding: 30px;
+        align-items: center;
+}
+
+/* left section of footer styling  */
+    
+.left-footer {
+        display: flex; /* Flexbox for left footer */
+        align-items: center; /* Center items vertically */
+}
+.follow-us{
+        color: grey;
+}
+span{
+        color: #33383CFF;
+        cursor: pointer;
+}
+.left-footer span {
+        margin-right: 10px; /* Space between each span */
+}
+
+.left-footer img {
+        width: 105px; /* Set the width of the icon */
+        height: 90; /* Maintain aspect ratio */
+        display: block;
+        margin-bottom: 0;
+}
+    
+.left-footer #follow{
+        cursor: auto;
+}
+
+/* left footer ends */
+
+/* Right section of footer styling  */
+.right-footer {
+        display: flex; /* Flexbox for right footer */
+        align-items: center; /* Center items vertically */
+}
+    
+.right-footer span {
+        margin-right: 10px; /* Space between each span */
+}
+    
+ /* creating the right arrow to select the language  */
+.right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        
+}
+/* to reduce space between the arrow and text */
+.right-footer #right-arro{
+        margin-left: -8px;
+}
+
+/* footer ends here */
+
+        
+        
+        
+        
+        
+
+        

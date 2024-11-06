@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title and Icon of the webpage -->
+    <title>DIOR - International Official Online Boutique | Fashion and beauty  | DIOR</title>
+    <link rel="icon" href="images/dior icon.png" type="image/css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- Section 1 starts -->
+        <section>
+            <!-- Main container to place the videos and it's contents -->
+            <div class="container-main">
+                <!--2 Containers to place the videos -->
+                <!-- container 1 -->
+                <div class="video-container left-video">
+                    <div class="heading-section">
+                        <h2> <a href="#">Fashion & Accessories</a> </h2>
+                        <p> <a href="#"> Shop now</a> </p>
+                    </div>
+                    <a href="#">
+                        <!-- video 1 -->
+                         <div class="overlay-left"> </div> <!-- For delay in animation-->
+                        <video autoplay loop muted >
+                            <source src="https://diorama.dam-broadcast.com/pm_11872_906_906379-bee9h1s4s1-1080.mp4">
+                        </video>
+                    </a>  
+                    <!-- ► Play and Pause button-->
+                    <button class="play-button" onclick="playVideo('left-video')"></button>      
+                </div>
+                <!-- container 2-->
+                <div class="video-container right-video">
+                    <div class="heading-section">
+                        <h2> <a href="#">Fragrance & Beauty</a> </h2>
+                        <p> <a href="#"> Shop now</a> </p>
+                    </div>
+                    <a href="#">
+                        <!-- video 2 -->
+                        <div class="overlay-right"> </div> <!-- For delay in animation-->
+                        <video autoplay loop muted>
+                            <source src="https://diorama.dam-broadcast.com/pm_11872_899_899248-n758pf0kgc-1080.mp4">
+                        </video>
+                    </a> 
+                    <!-- play and pause button -->
+                    <button class="play-button" onclick="playVideo('right-video')"></button>               
+                </div>
+                <!-- div to place the icon -->
+                <div class="header">
+                    <img src="images/dior icon white.png" alt="DIOR">
+                </div>
+            </div>
+        </section>
+        <!-- Section 1 ends here -->
+
+        <!-- Section 2 starts here -->
+        <section class="section-2">
+            <!-- This container is to place some small contents before footer -->
+            <div class="before-footer">
+                <!-- Container to place the email form and it's describing contents -->
+                <div class="email">
+                    <p>Inspire me with all the latest Dior news</p>
+                    <!-- form starts -->
+                    <form class="email-form" autocomplete="off">
+                        <div class="email-input">
+                            <input type="email" id="email">
+                            <label for="email">*E-mail</label>
+                        </div>
+                        <input type="submit" value="Confirm" class="confirm-btn">
+                    </form>
+                </div>
+                <!-- Container to place the toggle button and It's describtion -->
+                <div class="Accessibility">
+                    <p>Accessibility: Better contrast</p>
+                    <!-- Toggle button -->
+                     <!-- Hidden checkbox to control toggle state -->
+                    <input type="checkbox" id="toggle" class="toggle-checkbox">
+                    <!-- Label styled as the toggle switch -->
+                    <label for="toggle" class="toggle-switch"></label>
+                </div>
+                <!-- Table container -->
+                 <!-- creating arrow using I tag.... here it's down arrow -->
+                <div class="table-dior">
+                    <table>
+                        <tr id="row-1">
+                            <th>Dior Boutiques</th>
+                            <th>Client Services</th>
+                            <th>The House Of Dior</th>
+                            <th>Legal Terms</th>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Christian Dior Couture</a></td>
+                            <td><a href="#">Contact</a> <i class="arrow down"></i></a></td>
+                            <td><a href="#">Dior Sustainability</a></td>
+                            <td><a href="#">Legal Terms</a> <i class="arrow down"></i></td>
+                        </tr>
+                        <tr>
+                            <td> <a href="#">Parfums Christian Dior</i></td> 
+                            <td><a href="#">FAQ</a> <i class="arrow down"></i></td>
+                            <td><a href="#">Ethics & Compliance</a></td>
+                            <td><a href="#">Privacy Notice</a> <i class="arrow down"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#">Careers</a></td>
+                            <td><a href="#">Your Privacy Choices and Cookies</a></a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#">General Sales Conditions</a> <i class="arrow down"></i></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href="#">Site Map </a> <i class="arrow down"></i></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- Section 2 ends here -->
+    </main>
+
+    <!-- footer starts here -->
+    <footer>
+      <div class="footer-container">
+        <!-- Following link -->
+        <div class="left-footer">
+            <span class="follow-us" id="follow"> Follow Us</span>
+            <span>Tiktok</span>
+            <span>Instagram</span>
+            <span>X</span>
+            <span>Facebook</span>
+            <span>Pinterest</span>
+            <span>Snapchat</span>
+            <span>LinkedIn</span>
+            <span>Podcasts</span>
+            <img src="images/dior icon.png" alt="DIOR">
+        </div>
+        <!-- change language link -->
+        <div class="right-footer">
+            <span class="follow-us">Country / Region</span>
+            <!-- creating arrow using I tag.... here it's right arrow -->
+            <span>International version (English)</span> <i class="arrow right" id="right-arrow"></i>  
+        </div>
+      </div>  
+    </footer>
+</body>
+</html>
